@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en" data-ng-app="de.cismet.crisma.widgets.scenarioListWidget">
+    <head>
+        <meta charset="utf-8">
+        <title>ScenarioListWidgetTest</title>
+        <link rel="stylesheet" href="css/app.css"/>
+    </head>
+    <body>
+
+
+        <div data-ng-controller="de.cismet.crisma.widgets.scenarioListWidget.controllers.ScenarioListWidgetController">
+            <worldstate-select worldstates="scenarioWorldstates" selected-worldstates="selectedWorldstates"></worldstate-select>
+            <p>sel: {{selectedWorldstates}}</p>
+        </div>
+
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular.min.js"></script>-->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/services.js"></script>
+        <script src="js/controllers.js"></script>
+        <script src="js/directives.js"></script>
+        <script src="http://crisma.cismet.de/lib/js/de/cismet/crisma/dev/shared-services.js"></script>
+        <script src="http://crisma.cismet.de/lib/js/de/cismet/cids/cids.js"></script>
+        <script src="http://crisma.cismet.de/lib/js/de/cismet/cids/pure_rest_backend.js"></script>
+        <script src="http://crisma.cismet.de/lib/js/de/cismet/commons/angular/angularTools/AngularTools.js"></script>
+        <script src="http://codeorigin.jquery.com/jquery-2.0.3.js"></script>
+    </body>
+</html>
