@@ -1,4 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
+        <file>file:/Users/mscholl/gitwork/cismet/crisma/scenario-list-widget-angular/app/scripts/services/ScenarioWorldstatesService.js</file>
+        <file>file:/Users/mscholl/gitwork/cismet/crisma/scenario-list-widget-angular/bower.json</file>
+        <file>file:/Users/mscholl/gitwork/cismet/crisma/scenario-list-widget-angular/app/index.html</file>
+        <file>file:/Users/mscholl/gitwork/cismet/crisma/scenario-list-widget-angular/app/styles/main.css</file>
+        <file>file:/Users/mscholl/gitwork/cismet/crisma/scenario-list-widget-angular/app/scripts/controllers/ScenarioWorldstatesDirectiveController.js</file>
+        <file>file:/Users/mscholl/gitwork/cismet/crisma/scenario-list-widget-angular/app/bower_components/bootstrap/dist/css/bootstrap-theme.css</file>
+        <file>file:/Users/mscholl/gitwork/cismet/crisma/scenario-list-widget-angular/app/bower_components/bootstrap/dist/css/bootstrap.css</file>
+        <file>file:/Users/mscholl/gitwork/cismet/crisma/scenario-list-widget-angular/app/templates/ScenarioWorldstatesTemplate.html</file>
+        <file>file:/Users/mscholl/gitwork/cismet/crisma/scenario-list-widget-angular/app/scripts/app.js</file>
+        <file>file:/Users/mscholl/gitwork/cismet/crisma/scenario-list-widget-angular/Gruntfile.js</file>
+        <file>file:/Users/mscholl/gitwork/cismet/crisma/scenario-list-widget-angular/test/spec/controllers/ScenarioWorldstatesDirectiveController.js</file>
+        <file>file:/Users/mscholl/gitwork/cismet/crisma/scenario-list-widget-angular/test/runner.html</file>
+        <file>file:/Users/mscholl/gitwork/cismet/crisma/scenario-list-widget-angular/test/spec/services/ScenarioWorldstatesService.js</file>
+        <file>file:/Users/mscholl/gitwork/cismet/crisma/scenario-list-widget-angular/karma.conf.js</file>
+    </open-files>
 </project-private>
