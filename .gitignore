@@ -1,6 +1,9 @@
 node_modules
-dist
+dist/*
+!dist/scripts
 .tmp
 .sass-cache
 app/bower_components
 nbproject/private
+.idea
+

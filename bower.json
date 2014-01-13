@@ -1,20 +1,31 @@
 {
-  "name": "scenario-list-widget-angular",
-  "version": "0.0.0",
-  "dependencies": {
-    "angular": "1.2.7",
-    "json3": "~3.2.4",
-    "jquery": "~1.9.1",
-    "es5-shim": "~2.0.8",
-    "angular-resource": "~1.2.7",
-    "angular-commons": "~0.2.0"
-  },
-  "devDependencies": {
-    "angular-mocks": "~1.0.7",
-    "angular-scenario": "~1.0.7"
-  },
-  "resolutions": {
-    "angular": "1.2.7",
-    "angular-resource": "~1.2.7"
-  }
+    "name": "crisma-scenario-list-widget-angular",
+    "version": "0.1.0",
+    "main": ["dist/scripts/crisma-scenario-list-widget-angular.js", "dist/scripts/crisma-scenario-list-widget-angular-tpl.js", "dist/scripts/crisma-scenario-list-widget-angular.min.js"],
+    "ignore": [
+        ".*",
+        "app",
+        "config",
+        "nbproject",
+        "test",
+        "Gruntfile.js",
+        "karma*",
+        "package.json"
+    ],
+    "dependencies": {
+        "angular": "1.2.7",
+        "json3": "~3.2.4",
+        "jquery": "~1.9.1",
+        "es5-shim": "~2.0.8",
+        "angular-resource": "~1.2.7",
+        "angular-commons": "~0.2.0",
+        "bootstrap": "3.0.3"
+    },
+    "devDependencies": {
+        "angular-mocks": "~1.0.7",
+        "angular-scenario": "~1.0.7"
+    },
+    "resolutions": {
+        "angular": "1.2.7"
+    }
 }
