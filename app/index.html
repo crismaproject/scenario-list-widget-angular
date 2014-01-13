@@ -10,10 +10,12 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        
+        <!-- bower:css -->
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>    
+        <!-- endbower -->
 
         <!-- build:css(.tmp) styles/main.css -->
-        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
     </head>
@@ -27,23 +29,21 @@
           <script src="bower_components/json3/lib/json3.min.js"></script>
         <![endif]-->
         
-        <!-- Add your site or application content here -->
+        <!-- demo only -->
         <div class="container">
             <scenario-worldstates-widget/>
         </div>
 
+        <!-- bower plugin does not yet work as expected -->
+        <!-- bower:js -->
         <script src="bower_components/jquery/jquery.js"></script>
         <script src="bower_components/angular/angular.js"></script>
-
-        <!-- build:js scripts/plugins.js -->
-        <!-- endbuild -->
-        
-        <!-- build:js scripts/modules.js -->
         <script src="bower_components/angular-resource/angular-resource.js"></script>
         <script src="bower_components/angular-commons/dist/scripts/angular-commons.js"></script>
-        <!-- endbuild -->
+        <!-- endbower -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <!-- ngtemplates adds generated templates -->
+        <!-- build:js({.tmp,app}) scripts/crisma-scenario-list-widget-angular.min.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/ScenarioWorldstatesDirectiveController.js"></script>
         <script src="scripts/directives/ScenarioWorldstatesDirective.js"></script>

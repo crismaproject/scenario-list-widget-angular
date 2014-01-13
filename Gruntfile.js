@@ -10,7 +10,11 @@
 module.exports = function (grunt) {
   require('load-grunt-tasks')(grunt);
   require('time-grunt')(grunt);
-
+  
+  grunt.registerMultiTask('echoMessage', 'Echo message', function () {
+      grunt.log.writeln(grunt.log.wordlist([this.data], {color: 'yellow'}));
+  });
+  
   grunt.initConfig({
     yeoman: {
       // configurable paths
@@ -58,7 +62,7 @@ module.exports = function (grunt) {
         port: 9000,
         // Change this to '0.0.0.0' to access the server from outside.
         hostname: 'localhost',
-        livereload: 35729,
+        livereload: 35729
       },
       livereload: {
         options: {
@@ -66,7 +70,7 @@ module.exports = function (grunt) {
           base: [
             '.tmp',
             '<%= yeoman.app %>'
-          ],
+          ]
         }
       },
       test: {
@@ -95,6 +99,18 @@ module.exports = function (grunt) {
             '!<%= yeoman.dist %>/.git*'
           ]
         }]
+      },
+      // cleans cdnified and test components
+      deploy: {
+          src: [
+              '<%= yeoman.dist %>/bower_components/angular',
+              '<%= yeoman.dist %>/bower_components/angular-resource',
+              '<%= yeoman.dist %>/bower_components/angular-mocks',
+              '<%= yeoman.dist %>/bower_components/angular-scenario',
+              '<%= yeoman.dist %>/bower_components/jquery',
+              '<%= yeoman.dist %>/bower_components/bootstrap',
+              '<%= yeoman.dist %>/images'
+          ]
       },
       server: '.tmp'
     },
@@ -132,9 +148,12 @@ module.exports = function (grunt) {
     },
     // not used since Uglify task does concat,
     // but still available if needed
-    /*concat: {
-      dist: {}
-    },*/
+    concat: {
+      dist: {
+          src: '<%= yeoman.app %>/scripts/**/*.js',
+          dest: '<%= yeoman.dist %>/scripts/crisma-scenario-list-widget-angular.js'
+      }
+    },
     rev: {
       dist: {
         files: {
@@ -212,6 +231,26 @@ module.exports = function (grunt) {
           src: ['*.html', 'views/*.html'],
           dest: '<%= yeoman.dist %>'
         }]
+      },
+      deploy: {
+        options: {
+          removeComments: true,
+          removeCommentsFromCDATA: true,
+          // https://github.com/yeoman/grunt-usemin/issues/44
+          collapseWhitespace: true,
+          collapseBooleanAttributes: true,
+          removeAttributeQuotes: true,
+          removeRedundantAttributes: true,
+          useShortDoctype: true,
+          removeEmptyAttributes: true,
+          removeOptionalTags: true
+        },
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.dist %>',
+          src: ['*.html', 'views/*.html'],
+          dest: '<%= yeoman.dist %>'
+        }]
       }
     },
     // Put files not handled in other tasks here
@@ -259,7 +298,7 @@ module.exports = function (grunt) {
         'copy:styles',
         'imagemin',
         'svgmin',
-        'htmlmin'
+        'htmlmin:dist'
       ]
     },
     karma: {
@@ -282,7 +321,7 @@ module.exports = function (grunt) {
           dest: '<%= yeoman.dist %>/scripts'
         }]
       }
-    },
+    }/*,
     uglify: {
       dist: {
         files: {
@@ -291,6 +330,43 @@ module.exports = function (grunt) {
           ]
         }
       }
+    }*/,
+    ngtemplates: {
+        dist: {
+            options: {
+                module: 'de.cismet.crisma.widgets.scenarioListWidget.directives',
+                htmlmin:  '<%= htmlmin.deploy %>',
+                usemin: 'scripts/crisma-scenario-list-widget-angular.min.js'
+            },
+            cwd: '<%= yeoman.app %>',
+            src: 'templates/**.html',
+            dest: '<%= yeoman.dist %>/scripts/crisma-scenario-list-widget-angular.min.js'
+        },
+        deploy: {
+            options: {
+                module: 'de.cismet.crisma.widgets.scenarioListWidget.directives'
+            },
+            cwd: '<%= yeoman.app %>',
+            src: 'templates/**.html',
+            dest: '<%= yeoman.dist %>/scripts/crisma-scenario-list-widget-angular-tpl.js'
+        }
+    },
+    // we do this since the grunt-google-cdn plugin is stale, quick and dirty
+    replace: {
+        cdnify: {
+            src: ['<%= yeoman.dist %>/index.html'],
+            dest: ['<%= yeoman.dist %>/index.html'],
+            replacements: [
+                {from: 'bower_components/bootstrap/dist/css/bootstrap.css', to: '//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css'},
+                {from: 'bower_components/angular/angular.js', to: '//ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js'},
+                {from: 'bower_components/angular-resource/angular-resource.js', to: '//ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.min.js'},
+                // mixed opinion on this topic (replace bower dep with min on dist creation), but no solution
+                {from: 'bower_components/angular-commons/dist/scripts/angular-commons.js', to: 'bower_components/angular-commons/dist/scripts/angular-commons.min.js'}
+            ]
+        }
+    },
+    echoMessage: {
+        message: 'REMEMBER TO UPDATE REPLACE AND CLEAN TASKS IF BOWER DEPS ARE CHANGED!'
     }
   });
 
@@ -319,16 +395,22 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'useminPrepare',
+    'ngtemplates:dist',
     'concurrent:dist',
     'autoprefixer',
     'concat',
     'copy:dist',
     'cdnify',
+    'replace',
+    'clean:deploy',
     'ngmin',
     'cssmin',
     'uglify',
-    'rev',
-    'usemin'
+//    'rev',
+    'usemin',
+    'htmlmin:deploy',
+    'ngtemplates:deploy',
+    'echoMessage'
   ]);
 
   grunt.registerTask('default', [
