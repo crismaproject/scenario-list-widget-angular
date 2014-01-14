@@ -55,7 +55,8 @@
     "karma": "~0.10.9",
     "karma-ng-html2js-preprocessor": "~0.1.0",
     "grunt-angular-templates": "~0.5.1",
-    "grunt-text-replace": "~0.3.10"
+    "grunt-text-replace": "~0.3.10",
+    "grunt-concat-css": "~0.1.1"
   },
   "engines": {
     "node": ">=0.8.0"

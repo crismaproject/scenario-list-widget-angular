@@ -367,6 +367,12 @@ module.exports = function (grunt) {
     },
     echoMessage: {
         message: 'REMEMBER TO UPDATE REPLACE AND CLEAN TASKS IF BOWER DEPS ARE CHANGED!'
+    },
+    concat_css: {
+        all: {
+            src: ['<%= yeoman.app %>/styles/**/*.css'],
+            dest: '<%= yeoman.dist %>/styles/crisma-scenario-list-widget-angular.css'
+        }
     }
   });
 
@@ -405,6 +411,7 @@ module.exports = function (grunt) {
     'clean:deploy',
     'ngmin',
     'cssmin',
+    'concat_css',
     'uglify',
 //    'rev',
     'usemin',
