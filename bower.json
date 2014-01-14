@@ -1,7 +1,13 @@
 {
     "name": "crisma-scenario-list-widget-angular",
-    "version": "0.2.0",
-    "main": ["dist/scripts/crisma-scenario-list-widget-angular.js", "dist/scripts/crisma-scenario-list-widget-angular-tpl.js", "dist/scripts/crisma-scenario-list-widget-angular.min.js", "dist/styles/scenario-worldstate-widget.css"],
+    "version": "0.1.2",
+    "main": [
+        "dist/scripts/crisma-scenario-list-widget-angular.js", 
+        "dist/scripts/crisma-scenario-list-widget-angular-tpl.js", 
+        "dist/scripts/crisma-scenario-list-widget-angular.min.js", 
+        "crisma-scenario-list-widget-angular.css",
+        "crisma-scenario-list-widget-angular.min.css"
+        ],
     "ignore": [
         ".*",
         "app",
