@@ -1,8 +1,8 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7 expandfull"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8 expandfull"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9 expandfull"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js expandfull"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,7 +19,7 @@
         <link rel="stylesheet" href="styles/scenario-worldstates-widget.css">
         <!-- endbuild -->
     </head>
-    <body ng-app="de.cismet.crisma.widgets.scenarioListWidget">
+    <body ng-app="de.cismet.crisma.widgets.scenarioListWidget" class="expandfull">
         <!--[if lt IE 7]>
           <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -30,9 +30,7 @@
         <![endif]-->
         
         <!-- demo only -->
-        <div class="container">
-            <scenario-worldstates-widget/>
-        </div>
+        <scenario-worldstates-widget/>
 
         <!-- bower plugin does not yet work as expected -->
         <!-- bower:js -->

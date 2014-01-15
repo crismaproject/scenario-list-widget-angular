@@ -12,6 +12,7 @@ angular.module(
                 selectedWorldstates: '=?'
             },
             restrict: 'E',
+            replace: true,
             templateUrl: 'templates/ScenarioWorldstatesTemplate.html',
             controller: 'de.cismet.crisma.widgets.scenarioListWidget.controllers.ScenarioWorldstatesDirectiveController'
         };
