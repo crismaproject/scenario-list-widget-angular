@@ -363,6 +363,20 @@ module.exports = function (grunt) {
                 // mixed opinion on this topic (replace bower dep with min on dist creation), but no solution
                 {from: 'bower_components/angular-commons/dist/scripts/angular-commons.js', to: 'bower_components/angular-commons/dist/scripts/angular-commons.min.js'}
             ]
+        },
+        // we would like to use uglify but its dead code removal won't find the debug statements as they don't use a 
+        // global var but an injected one, maybe reconsider debug config in the future
+        debugCode: {
+            // this is the concatenated file
+            src: ['.tmp/concat/scripts/crisma-scenario-list-widget-angular.min.js'],
+            dest: ['.tmp/concat/scripts/crisma-scenario-list-widget-angular.min.js'],
+            replacements: [
+                // unfortunately we cannot simply match opening { and count other opening { and then match the last closing one
+                // if this is needed some time in the future, we have to match everything and process the text in a to-function
+                // 
+                {from: /if\s*\(\s*DEBUG\s*\)\s*\{\s*console\s*\.\s*log\s*\(\s*('|").*\1??\s*\)\s*;?\s*\}/g, to: ''}
+            ]
+            
         }
     },
     echoMessage: {
@@ -407,11 +421,12 @@ module.exports = function (grunt) {
     'concat',
     'copy:dist',
     'cdnify',
-    'replace',
+    'replace:cdnify',
     'clean:deploy',
     'ngmin',
     'cssmin',
     'concat_css',
+    'replace:debugCode',
     'uglify',
 //    'rev',
     'usemin',
