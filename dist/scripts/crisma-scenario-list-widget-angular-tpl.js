@@ -2,10 +2,12 @@ angular.module('de.cismet.crisma.widgets.scenarioListWidget.directives').run(['$
   'use strict';
 
   $templateCache.put('templates/ScenarioWorldstatesTemplate.html',
-    "<div class=\"well\">\n" +
-    "    <select id=\"scenarioWorldstatesWidget\" multiple=\"true\" size=\"10\" data-ng-model=\"selectedWorldstates\" class=\"\"\n" +
-    "            data-ng-options=\"ws.name for ws in scenarioWorldstates\" />\n" +
-    "</div>\n"
+    "<div class=\"expandfull padding-border-box\">\n" +
+    "    <div class=\"well expandfull\">\n" +
+    "        <select id=\"scenarioWorldstateWidget\" multiple=\"true\" size=\"10\" data-ng-model=\"selectedWorldstates\"\n" +
+    "                data-ng-options=\"ws.name for ws in scenarioWorldstates track by ws.id\" />\n" +
+    "    </div>\n" +
+    "</div>"
   );
 
 }]);
