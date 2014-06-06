@@ -10,7 +10,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        
+
         <!-- bower:css -->
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>    
         <!-- endbower -->
@@ -28,9 +28,16 @@
           <script src="bower_components/es5-shim/es5-shim.js"></script>
           <script src="bower_components/json3/lib/json3.min.js"></script>
         <![endif]-->
-        
+
         <!-- demo only -->
-        <scenario-worldstates-widget/>
+        <div class="row" ng-init="selectedWorldstate">
+            <div class="col-lg-3">
+                <scenario-worldstates-widget style="margin: 10px;" class="custom-list" selected-worldstate="selectedWorldstate"/>
+            </div>
+            <div class="col-lg-9">
+                <p>{{selectedWorldstate| json}}</p>
+            </div>
+        </div>
 
         <!-- bower plugin does not yet work as expected -->
         <!-- bower:js -->
@@ -38,6 +45,9 @@
         <script src="bower_components/angular/angular.js"></script>
         <script src="bower_components/angular-resource/angular-resource.js"></script>
         <script src="bower_components/angular-commons/dist/scripts/angular-commons.js"></script>
+        <script src="bower_components/icmm_js/dist/scripts/icmm_js.js"></script>
+        <script src="bower_components/scenario-node-list-widget/dist/scripts/scenario-node-list-widget.js"></script>
+        <script src="bower_components/scenario-node-list-widget/dist/scripts/scenario-nodes-list-widget-tpl.js"></script>
         <!-- endbower -->
 
         <!-- ngtemplates adds generated templates -->
@@ -45,23 +55,22 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/ScenarioWorldstatesDirectiveController.js"></script>
         <script src="scripts/directives/ScenarioWorldstatesDirective.js"></script>
-        <script src="scripts/services/ScenarioWorldstatesService.js"></script>
         <!-- endbuild -->
-        
+
         <!-- demo only -->
         <script>
-            angular.module('de.cismet.crisma.widgets.scenarioListWidget').config(
-                [
-                    '$provide',
-                    function ($provide) {
-                        'use strict';
+                    angular.module('de.cismet.crisma.widgets.scenarioListWidget').config(
+                        [
+                            '$provide',
+                            function ($provide) {
+                                'use strict';
 
-                        $provide.constant('DEBUG', 'true');
-                        $provide.constant('CRISMA_DOMAIN', 'CRISMA');
-                        $provide.constant('CRISMA_ICMM_API', 'http://crisma.cismet.de/icmm_api');
-                    }
-                ]
-            );
+                                $provide.constant('DEBUG', 'true');
+                                $provide.constant('CRISMA_DOMAIN', 'CRISMA');
+                                $provide.constant('CRISMA_ICMM_API', 'http://localhost:8890');
+                            }
+                        ]
+                        );
         </script>
     </body>
 </html>
