@@ -13,7 +13,9 @@ angular.module(
     'de.cismet.crisma.widgets.scenarioListWidget',
     [
         'de.cismet.crisma.widgets.scenarioListWidget.directives',
-        'de.cismet.crisma.widgets.scenarioListWidget.services',
-        'de.cismet.crisma.widgets.scenarioListWidget.controllers'
+        'de.cismet.crisma.widgets.scenarioListWidget.controllers',
+        'de.cismet.cids.rest.collidngNames.Nodes',
+        'de.cismet.crisma.ICMM.Worldstates',
+        'de.cismet.crisma.widgets.scenarioNodeListWidget'
     ]
 );
