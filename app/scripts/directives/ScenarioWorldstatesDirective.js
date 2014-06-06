@@ -8,8 +8,7 @@ angular.module(
 
         return {
             scope: {
-                scenarioWorldstates: '=?',
-                selectedWorldstates: '=?'
+                selectedWorldstate: '=?'
             },
             restrict: 'E',
             replace: true,
