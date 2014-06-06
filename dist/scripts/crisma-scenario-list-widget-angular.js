@@ -1,3 +1,13 @@
+//angular.module('tpltest', []).run(['$templateCache', function($templateCache) {
+//    $templateCache.put('partials/worldstateSelector.html', 
+//'<div>'
+//    + '<select id="worldstate-selection-widget" multiple="true" size="10" data-ng-model="selectedWorldstates" '
+//             +'data-ng-options="ws.name for ws in worldstates" >'
+//    +'</select>'
+//+'</div>'
+//)    
+//}]);
+// this only combines all the modules in a single one 
 angular.module('de.cismet.crisma.widgets.scenarioListWidget', [
   'de.cismet.crisma.widgets.scenarioListWidget.directives',
   'de.cismet.crisma.widgets.scenarioListWidget.services',
@@ -15,6 +25,7 @@ angular.module('de.cismet.crisma.widgets.scenarioListWidget.controllers', [
   function ($scope, $injector, wsService, AngularTools, DEBUG) {
     'use strict';
     var initializeShareService;
+    // using initializer function as we don't need anything of this stuff in this scope
     initializeShareService = function () {
       var shareService;
       if ($injector.has('de.cismet.crisma.widgets.shared.SharedService')) {
@@ -35,6 +46,7 @@ angular.module('de.cismet.crisma.widgets.scenarioListWidget.controllers', [
             };
           }
           if (o === n) {
+            // ignore event, do nothing
             return;
           }
           shareService.setSelectedWorldstates($scope.selectedWorldstates);
@@ -63,6 +75,8 @@ angular.module('de.cismet.crisma.widgets.scenarioListWidget.directives', []).dir
     controller: 'de.cismet.crisma.widgets.scenarioListWidget.controllers.ScenarioWorldstatesDirectiveController'
   };
 });
+/* Services */
+/* TODO: use cidsjs module when available */
 angular.module('de.cismet.crisma.widgets.scenarioListWidget.services', ['ngResource']).factory('de.cismet.crisma.widgets.scenarioListWidget.services.ScenarioWorldstatesService', [
   'CRISMA_ICMM_API',
   'CRISMA_DOMAIN',
