@@ -3,7 +3,7 @@ angular.module('de.cismet.crisma.widgets.scenarioListWidget.directives').run(['$
 
   $templateCache.put('templates/ScenarioWorldstatesTemplate.html',
     "<div>\n" +
-    "    <scenario-node-list-widget selected-worldstate=\"selectedWorldstateNode\"/>\n" +
+    "    <cids-node-list-widget selected-worldstate=\"selectedWorldstateNode\"/>\n" +
     "</div>"
   );
 

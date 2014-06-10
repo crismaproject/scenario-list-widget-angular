@@ -1,6 +1,6 @@
 {
     "name": "crisma-scenario-list-widget-angular",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "main": [
         "dist/scripts/crisma-scenario-list-widget-angular.js", 
         "dist/scripts/crisma-scenario-list-widget-angular-tpl.js", 
@@ -27,7 +27,7 @@
         "angular-commons": "~0.2.0",
         "bootstrap": "3.0.3",
         "icmm_js": "v0.1.0",
-        "scenario-node-list-widget": "v0.1.0"
+        "cids-node-list-widget": "v0.1.1"
     },
     "devDependencies": {
         "angular-mocks": "~1.0.7",
