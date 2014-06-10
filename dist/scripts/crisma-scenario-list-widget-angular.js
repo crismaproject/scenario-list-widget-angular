@@ -13,7 +13,7 @@ angular.module('de.cismet.crisma.widgets.scenarioListWidget', [
   'de.cismet.crisma.widgets.scenarioListWidget.controllers',
   'de.cismet.cids.rest.collidngNames.Nodes',
   'de.cismet.crisma.ICMM.Worldstates',
-  'de.cismet.crisma.widgets.scenarioNodeListWidget'
+  'de.cismet.cids.widgets.nodeListWidget'
 ]);
 angular.module('de.cismet.crisma.widgets.scenarioListWidget.controllers', ['de.cismet.commons.angular.angularTools']).controller('de.cismet.crisma.widgets.scenarioListWidget.controllers.ScenarioWorldstatesDirectiveController', [
   '$scope',
