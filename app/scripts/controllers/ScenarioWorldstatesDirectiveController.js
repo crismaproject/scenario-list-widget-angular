@@ -3,7 +3,7 @@ angular.module(
     [
         'de.cismet.commons.angular.angularTools'
     ]
-).controller(
+    ).controller(
     'de.cismet.crisma.widgets.scenarioListWidget.controllers.ScenarioWorldstatesDirectiveController',
     [
         '$scope',
@@ -14,10 +14,12 @@ angular.module(
             $scope.$watch('selectedWorldstateNode', function (newVal, oldVal) {
                 if (newVal !== oldVal) {
                     worldstateId = $scope.selectedWorldstateNode.objectKey;
-                    worldstateId = worldstateId.substring(worldstateId.lastIndexOf('/')+1,worldstateId.length);
-                    $scope.selectedWorldstate = Worldstates.get({wsId: worldstateId});
+                    worldstateId = worldstateId.substring(worldstateId.lastIndexOf('/') + 1, worldstateId.length);
+                    Worldstates.get({wsId: worldstateId}, function (ws) {
+                        $scope.selectedWorldstate = ws;
+                    });
                 }
             });
         }
     ]
-);
+    );
