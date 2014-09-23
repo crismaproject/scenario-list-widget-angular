@@ -15,24 +15,26 @@ angular.module(
             'use strict';
             var worldstateId, changeFromSelectedWorldstateWatch;
 
-            function getNodeKeyForWorldstate (ws) {
+            function getNodeKeyForWorldstate(ws) {
                 var defer;
                 defer = $q.defer();
-                Worldstates.get({
+                Worldstates.get(
+                {
                     'wsId': ws.id,
                     level: 100,
                     field: 'parentworldstate,id',
-                    deduplicate: true},
-                function (parents) {
-                    var key;
-                    key = parents.id;
-                    while (parents.parentworldstate) {
-                        parents = parents.parentworldstate;
-                        key += '.' + parents.id
-                    }
+                    deduplicate: true
+                },
+                    function (parents) {
+                        var key;
+                        key = parents.id;
+                        while (parents.parentworldstate) {
+                            parents = parents.parentworldstate;
+                            key += '.' + parents.id;
+                        }
 
-                    defer.resolve(key.split('.').reverse().join('.'));
-                });
+                        defer.resolve(key.split('.').reverse().join('.'));
+                    });
                 return defer.promise;
             }
 
@@ -66,7 +68,7 @@ angular.module(
                     getNodeKeyForWorldstate($scope.selectedWorldstate).then(function (key) {
 
                         Nodes.get({nodeId: Nodes.utils.getRequestIdForNodeKey(key)}, function (wsNode) {
-                            changeFromSelectedWorldstateWatch=true;
+                            changeFromSelectedWorldstateWatch = true;
                             $scope.selectedWorldstateNode = wsNode;
                         });
                     });
