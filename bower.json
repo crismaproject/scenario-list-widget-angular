@@ -1,6 +1,6 @@
 {
   "name": "crisma-scenario-list-widget-angular",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "main": [
     "dist/scripts/crisma-scenario-list-widget-angular.js",
     "dist/scripts/crisma-scenario-list-widget-angular-tpl.js",
