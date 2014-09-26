@@ -27,7 +27,7 @@ angular.module(
                 },
                     function (parents) {
                         var key;
-                        key = parents.id;
+                        key = parents.id.toString();
                         while (parents.parentworldstate) {
                             parents = parents.parentworldstate;
                             key += '.' + parents.id;
