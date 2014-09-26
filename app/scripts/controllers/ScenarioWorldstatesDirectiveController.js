@@ -19,12 +19,12 @@ angular.module(
                 var defer;
                 defer = $q.defer();
                 Worldstates.get(
-                {
-                    'wsId': ws.id,
-                    level: 100,
-                    field: 'parentworldstate,id',
-                    deduplicate: true
-                },
+                    {
+                        'wsId': ws.id,
+                        level: 100,
+                        field: 'parentworldstate,id',
+                        deduplicate: true
+                    },
                     function (parents) {
                         var key;
                         key = parents.id.toString();
@@ -34,7 +34,8 @@ angular.module(
                         }
 
                         defer.resolve(key.split('.').reverse().join('.'));
-                    });
+                    }
+                );
                 return defer.promise;
             }
 
