@@ -1,13 +1,3 @@
-//angular.module('tpltest', []).run(['$templateCache', function($templateCache) {
-//    $templateCache.put('partials/worldstateSelector.html', 
-//'<div>'
-//    + '<select id="worldstate-selection-widget" multiple="true" size="10" data-ng-model="selectedWorldstates" '
-//             +'data-ng-options="ws.name for ws in worldstates" >'
-//    +'</select>'
-//+'</div>'
-//)    
-//}]);
-// this only combines all the modules in a single one 
 angular.module('de.cismet.crisma.widgets.scenarioListWidget', [
   'de.cismet.crisma.widgets.scenarioListWidget.directives',
   'de.cismet.crisma.widgets.scenarioListWidget.controllers',
@@ -36,7 +26,7 @@ angular.module('de.cismet.crisma.widgets.scenarioListWidget.controllers', [
         deduplicate: true
       }, function (parents) {
         var key;
-        key = parents.id;
+        key = parents.id.toString();
         while (parents.parentworldstate) {
           parents = parents.parentworldstate;
           key += '.' + parents.id;
@@ -45,13 +35,6 @@ angular.module('de.cismet.crisma.widgets.scenarioListWidget.controllers', [
       });
       return defer.promise;
     }
-    /*
-             * The watch for the selected Worldstate node listens for changes of the selected node
-             * that occur when the user selects a list item.
-             * Furhtermore this watch is fires when the selectedWorldstate binding is changed from directives
-             * outer scope. In that case we must not update the selectedWorldstate again to avoid an infinte loop 
-             * of watch calls
-             */
     $scope.$watch('selectedWorldstateNode', function (newVal, oldVal) {
       if (newVal !== oldVal) {
         if (changeFromSelectedWorldstateWatch) {
@@ -65,10 +48,6 @@ angular.module('de.cismet.crisma.widgets.scenarioListWidget.controllers', [
         });
       }
     });
-    /*
-             * This watch listens for changes of the selectedWorldstate from directives outer scope.
-             * It is also fired when the selectedWorldstateNode has changed
-             */
     $scope.$watch('selectedWorldstate', function (newVal, oldVal) {
       if (newVal !== oldVal) {
         getNodeKeyForWorldstate($scope.selectedWorldstate).then(function (key) {
