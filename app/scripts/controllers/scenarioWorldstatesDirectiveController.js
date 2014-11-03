@@ -1,9 +1,5 @@
 angular.module(
-    'de.cismet.crisma.widgets.scenarioListWidget.controllers',
-    [
-        'de.cismet.commons.angular.angularTools',
-        'de.cismet.cids.rest.collidngNames.Nodes'
-    ]
+    'de.cismet.crisma.widgets.scenarioListWidget.controllers'
 ).controller(
     'de.cismet.crisma.widgets.scenarioListWidget.controllers.ScenarioWorldstatesDirectiveController',
     [
