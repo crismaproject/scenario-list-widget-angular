@@ -1,4 +1,4 @@
-scenario-list-widget-angular
+scenario-list-widget-angular [![Build Status](http://ci.cismet.de/buildStatus/icon?job=scenario-list-widget-angular)](https://ci.cismet.de/view/html5%20javascript/job/scenario-list-widget-angular/)
 ============================
 
 The AngularJS implementation of the Scenario List Widget Functional Building Block.
