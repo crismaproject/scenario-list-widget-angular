@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>    
         <!-- endbower -->
 
-        <!-- build:css(.tmp) styles/crisma-scenario-list-widget-angular.min.css -->
+        <!-- build:css() -->
         <link rel="stylesheet" href="styles/scenario-worldstates-widget.css">
         <!-- endbuild -->
     </head>
@@ -51,10 +51,12 @@
         <!-- endbower -->
 
         <!-- ngtemplates adds generated templates -->
-        <!-- build:js({.tmp,app}) scripts/crisma-scenario-list-widget-angular.min.js -->
+        <!-- build:js() -->
         <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/ScenarioWorldstatesDirectiveController.js"></script>
-        <script src="scripts/directives/ScenarioWorldstatesDirective.js"></script>
+        <script src="scripts/controllers/_module.js"></script>
+        <script src="scripts/controllers/scenarioWorldstatesDirectiveController.js"></script>
+        <script src="scripts/directives/_module.js"></script>
+        <script src="scripts/directives/scenarioWorldstatesDirective.js"></script>
         <!-- endbuild -->
 
         <!-- demo only -->
@@ -67,7 +69,7 @@
 
                                 $provide.constant('DEBUG', 'true');
                                 $provide.constant('CRISMA_DOMAIN', 'CRISMA');
-                                $provide.constant('CRISMA_ICMM_API', 'http://localhost:8890');
+                                $provide.constant('CRISMA_ICMM_API', 'http://crisma.cismet.de/icmm_api');
                             }
                         ]
                         );

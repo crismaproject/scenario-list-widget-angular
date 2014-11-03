@@ -1,6 +1,5 @@
 angular.module(
-    'de.cismet.crisma.widgets.scenarioListWidget.directives',
-    []
+    'de.cismet.crisma.widgets.scenarioListWidget.directives'
 ).directive(
     'scenarioWorldstatesWidget',
     function () {
